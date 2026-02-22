@@ -13,6 +13,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+export default app;
 
 const PORT = process.env.PORT || 5000;
 

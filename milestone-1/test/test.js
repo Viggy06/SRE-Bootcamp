@@ -1,8 +1,8 @@
 // test.js
 
-const request = require("supertest");
-const { expect } = require("chai");
-const app = require("../server");
+import request from "supertest";
+import { expect } from "chai";
+import app from "../server.js";
 
 describe("Student API Tests", () => {
 
