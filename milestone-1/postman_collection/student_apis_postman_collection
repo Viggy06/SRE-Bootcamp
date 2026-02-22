@@ -1,0 +1,409 @@
+{
+  "info": {
+    "_postman_id": "30b29a64-3c19-449b-bf4c-c95b55bbb048",
+    "name": "STUDENT_APIS_NODEJS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40801920"
+  },
+  "item": [
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Micheal\",\r\n    \"age\": 24,\r\n    \"course\": \"SRE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/v1/students/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "students",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Student",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"John\",\r\n    \"age\": 24,\r\n    \"course\": \"SRE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/students/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "students",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "88"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"58-W9SVFR/29ADWjOtimiP/E4dqExA\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 20 Feb 2026 17:18:49 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"1\",\n    \"name\": \"John\",\n    \"age\": 24,\n    \"created_at\": \"2026-02-20T17:18:49.406Z\",\n    \"course\": \"SRE\"\n}"
+        },
+        {
+          "name": "Create Student",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    // \"id\": 1,\r\n    \"name\": \"SAM\",\r\n    \"age\": 24,\r\n    \"course\": \"SRE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/students/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "students",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "87"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"57-lGZwS9khALnEVlj6CoVJvkMGrKE\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 20 Feb 2026 17:19:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"2\",\n    \"name\": \"SAM\",\n    \"age\": 24,\n    \"created_at\": \"2026-02-20T17:19:11.810Z\",\n    \"course\": \"SRE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Student",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/students/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "students",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get All Student",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/students/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "students",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "363"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"16b-Am7vYHNkAb9rsgulSEN4UTpZC4Q\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 20 Feb 2026 17:19:57 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": \"1\",\n        \"name\": \"John\",\n        \"age\": 24,\n        \"created_at\": \"2026-02-20T17:18:49.406Z\",\n        \"course\": \"SRE\"\n    },\n    {\n        \"id\": \"2\",\n        \"name\": \"SAM\",\n        \"age\": 24,\n        \"created_at\": \"2026-02-20T17:19:11.810Z\",\n        \"course\": \"SRE\"\n    },\n    {\n        \"id\": \"3\",\n        \"name\": \"Micheal\",\n        \"age\": 24,\n        \"created_at\": \"2026-02-20T17:19:27.452Z\",\n        \"course\": \"SRE\"\n    },\n    {\n        \"id\": \"4\",\n        \"name\": \"John\",\n        \"age\": 25,\n        \"created_at\": \"2026-02-20T17:19:49.634Z\",\n        \"course\": \"Testing\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Student By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/students/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "students",
+            "4"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Student By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/students/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "students",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "91"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"5b-9/Pwmh/ZzUaaOy0yjsKFv5Tra28\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 20 Feb 2026 17:20:10 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"3\",\n    \"name\": \"Micheal\",\n    \"age\": 24,\n    \"created_at\": \"2026-02-20T17:19:27.452Z\",\n    \"course\": \"SRE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Student By Id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/v1/students/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "v1",
+            "students",
+            "4"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Student By Id",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/v1/students/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "students",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "34"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"22-oOJrBJyyGFYVIpRp+CKZEFg6p8Q\""
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 20 Feb 2026 17:20:22 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Deleted successfully\"\n}"
+        }
+      ]
+    }
+  ]
+}
