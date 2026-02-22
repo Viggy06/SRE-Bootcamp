@@ -1,4 +1,4 @@
-.PHONY: install migrate start
+.PHONY: install migrate start test
 
 # Install both production and development dependencies
 install:
@@ -12,3 +12,5 @@ migrate:
 start:
 	npm start
 
+test:
+	npm test
