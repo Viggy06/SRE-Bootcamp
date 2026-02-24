@@ -1,4 +1,4 @@
-exports.up = (pgm) => {
+export const up = (pgm) => {
   pgm.addColumn("students", {
     course: {
       type: "varchar(21)",
@@ -7,6 +7,6 @@ exports.up = (pgm) => {
   });
 };
 
-exports.down = (pgm) => {
+export const down = (pgm) => {
   pgm.dropColumn("students", "course");
 };

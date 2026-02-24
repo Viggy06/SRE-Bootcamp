@@ -1,27 +1,26 @@
-exports.up = (pgm) => {
-  pgm.createTable('students', {
+export const up = (pgm) => {
+  pgm.createTable("students", {
     id: {
-      type: 'bigserial',
+      type: "bigserial",
       primaryKey: true,
     },
     name: {
-      type: 'varchar(100)',
+      type: "varchar(100)",
       notNull: false,
     },
     age: {
-      type: 'integer',
+      type: "integer",
       notNull: false,
-      check: 'age > 0',
+      check: "age > 0",
     },
     created_at: {
-      type: 'timestamp',
-      default: pgm.func('now()'),
+      type: "timestamp",
+      default: pgm.func("now()"),
       notNull: true,
     },
   });
-
 };
 
-exports.down = (pgm) => {
-  pgm.dropTable('students');
+export const down = (pgm) => {
+  pgm.dropTable("students");
 };
