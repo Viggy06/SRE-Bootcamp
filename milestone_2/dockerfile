@@ -8,6 +8,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+RUN chmod +x docker-entrypoint.sh
 
 # Stage 2: Production
 FROM node:20-alpine
@@ -20,9 +21,7 @@ RUN npm ci --omit=dev
 # Copy built app from builder stage
 COPY --from=builder /app ./
 
-# Install postgres client for wait script
-#RUN apt-get--no-cache postgresql-client
-
 EXPOSE 5000
 
-CMD ["sh", "-c", "npm start"]
+#CMD ["sh", "-c", "npm start", "./docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
