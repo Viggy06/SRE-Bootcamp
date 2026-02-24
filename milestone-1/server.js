@@ -9,16 +9,32 @@ const { Pool } = pg;
 const app = express();
 app.use(express.json());
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
 
 export default app;
 
 const PORT = process.env.PORT || 5000;
 
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+pool.connect()
+  .then(() => {
+    console.log("Connected to the database");
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Database connection failed:", err.message);
+    process.exit(1);
+  });
+
+
 const asyncHandler = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
+
 
 
 //HEALTH CHECK
@@ -119,9 +135,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({
     message: "Internal Server Error",
   });
-});
-
-
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
 });

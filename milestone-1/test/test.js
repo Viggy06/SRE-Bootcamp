@@ -72,5 +72,7 @@ describe("Student API Tests", () => {
 
     expect(res.status).to.equal(200);
   });
-
+after(() => {
+  process.exit(0);
+});
 });
