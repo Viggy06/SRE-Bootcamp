@@ -1,0 +1,11 @@
+.gitignore
+postman_collection
+node_modules
+dockerfile
+Makefile
+README.md
+test
+.env
+.env.docker
+.git
+.dockerignore
