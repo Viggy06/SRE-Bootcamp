@@ -14,6 +14,6 @@ docker-postgres:
 	docker run -d --name postgres-container --network student-network  --env-file .env postgres:16-alpine
 
 # Run the Docker container for the application
-docker-run:  
-	docker run -d -p 5000:5000 --name student_aps --network student-network --env-file .env student-api:1.0.0
+docker-run:
+	docker run -d -p 5000:5000 --name student_app --network student-network --env-file .env student-api:1.0.0
 
