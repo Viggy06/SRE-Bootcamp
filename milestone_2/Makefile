@@ -1,16 +1,19 @@
-.PHONY: install migrate start test
+.PHONY: docker-build  docker-postgres  docker-run docker-network
 
-# Install both production and development dependencies
-install:
-	npm install
+# Build the Docker image
+docker-build:
+	docker build --no-cache -t student-api:1.0.0 .
 
-# Run migrations
-migrate:
-	npm run migrate
+#Create a Docker network
+docker-network:
+	docker network create student-network
 
-# Start the application
-start:
-	npm start
+# Run the PostgreSQL container
+docker-postgres:
+	docker pull postgres:16-alpine
+	docker run -d --name postgres-container --network student-network  --env-file .env postgres:16-alpine
 
-test:
-	npm test
+# Run the Docker container for the application
+docker-run:  
+	docker run -d -p 5000:5000 --name student_aps --network student-network --env-file .env student-api:1.0.0
+
