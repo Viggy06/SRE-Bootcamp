@@ -16,10 +16,20 @@ make docker-build
 
 ###  Run the PostgreSQL Container
 ```bash
-make docker-compose-up-postgres-container
+make db-up
+```
+
+### Run the migration
+```bash
+make db-migrate
 ```
 
 ###  Run the Application Container
 ```bash
-make docker-compose-up-students-api
+make api-up
+```
+
+### Turn down the applications
+```bash
+make down
 ```
