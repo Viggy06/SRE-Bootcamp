@@ -21,8 +21,10 @@ api-up:
 	@echo "Starting the api..."
 	docker compose up -d student_api
 
+	#clean up
+	docker rmi db_migrate:v1
+
 # Stop everything and delete volume
 down:
 	docker compose down -v
-
 
