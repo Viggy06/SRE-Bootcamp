@@ -1,0 +1,11 @@
+name: Self Hosted Runner
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: First Test
+        run: |
+            echo "Hello FROM CI"

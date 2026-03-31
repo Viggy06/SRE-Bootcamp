@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+
+# Optional npm cache directory
+.npm
+
+# VS Code settings (optional)
+.vscode/
+
+# Nodemon temporary files
+nodemon.json
+
+# Build folders (if later used)
+dist/
+build/
