@@ -1,11 +1,40 @@
 name: Self Hosted Runner
-on: [push]
+on:
+ push:
+  branches:
+    - milestone_4
+  paths:
+    - milestone_4
+
+permissions:
+  contents: write
+
+env:
+  IMAGE_VERSION: 1.0.1
+  MILESTONE_4_DIR: milestone_4
 
 jobs:
   build:
     runs-on: self-hosted
 
     steps:
-      - name: First Test
-        run: |
-            echo "Hello FROM CI"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #--- Setting up Node
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ${{ env.MILESTONE_4_DIR }}
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ${{ env.MILESTONE_4_DIR }}
+        run: make test
+
+      - name: Perform code linting
+        working-directory: ${{ env.MILESTONE_4_DIR }}
+        run: make lint
