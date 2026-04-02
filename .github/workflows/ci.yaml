@@ -4,7 +4,7 @@ on:
   branches:
     - milestone_4
   paths:
-    - milestone_4
+    - milestone_4/**
 
 permissions:
   contents: write
