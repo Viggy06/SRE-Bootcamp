@@ -1,18 +1,15 @@
 {
-<<<<<<< HEAD
-  "name": "milestone_3",
-=======
   "name": "milestone_4",
->>>>>>> 9e5b830efd526de2130ab402c4f8f52e3fd4c89b
   "version": "1.0.0",
-  "description": "",
+  "description": "## Prerequisites",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "mocha ./test/test.js",
     "dev": "nodemon server.js",
     "migrate": "node-pg-migrate up",
-    "migrate:down": "node-pg-migrate down"
+    "migrate:down": "node-pg-migrate down",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,20 +17,16 @@
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-<<<<<<< HEAD
-=======
     "node-pg-migrate": "^8.0.4",
->>>>>>> 9e5b830efd526de2130ab402c4f8f52e3fd4c89b
     "pg": "^8.18.0"
   },
   "devDependencies": {
     "chai": "^6.2.2",
     "mocha": "^11.7.5",
-<<<<<<< HEAD
-    "node-pg-migrate": "^8.0.4",
-=======
->>>>>>> 9e5b830efd526de2130ab402c4f8f52e3fd4c89b
     "nodemon": "^3.1.11",
     "supertest": "^7.2.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
