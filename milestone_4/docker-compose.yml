@@ -16,7 +16,11 @@ services:
   student_api:
     build: .
     image: student_api:v1.0.0
+<<<<<<< HEAD
     container_name: student_apps
+=======
+    container_name: student_app
+>>>>>>> 9e5b830efd526de2130ab402c4f8f52e3fd4c89b
     ports:
       - "${PORT}:${PORT}"
     environment:
@@ -27,7 +31,12 @@ services:
 
   migrate:
     build: .
+<<<<<<< HEAD
     container_name: db_migrate_only
+=======
+    image: db_migrate:v1
+    container_name: db_migrate_container:v1
+>>>>>>> 9e5b830efd526de2130ab402c4f8f52e3fd4c89b
     command: npm run migrate #CMD
     depends_on:
       postgres_container:
