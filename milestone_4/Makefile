@@ -2,39 +2,40 @@
 
 # Build the Docker image
 docker-build:
-        docker build --no-cache -t student-api:1.0.0 .
+	docker build -t student-api:1.0.0 .
 
-#Database up
+# Start database
 db-up:
-        docker compose up -d postgres_container
+	docker compose up -d postgres_container
 
-#Migrate Database
+# Run migrations (one-time job)
 db-migrate:
-        docker compose run --rm -d migrate
+	docker compose run --rm migrate
 
-#Start App
+# Start full app
 api-up:
-        @echo "Starting DB..."
-        docker compose up postgres_container
-        @echo "Running Migrations..."
-        docker compose run --rm migrate
-        @echo "Starting the api..."
-        docker compose up student_api
+	@echo "Starting DB..."
+	docker compose up -d postgres_container
 
-        #clean up
-        docker rmi db_migrate:v1
+	@echo "Running Migrations..."
+	docker compose run --rm migrate
 
-# Stop everything and delete volume
+	@echo "Starting API..."
+	docker compose up -d student_api
+
+
+# Stop everything and delete volumes
 down:
-        docker compose down -v
+	docker compose down -v
 
+# Install dependencies
 install:
-        npm install
+	npm install
 
 # Run tests
 test:
-        npm test
+	npm test
 
-# Perform code linting
+# Lint
 lint:
-        npm run lint
+	npm run lint

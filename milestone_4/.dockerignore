@@ -1,0 +1,15 @@
+.gitignore
+.github
+postman
+node_modules
+notes.sh
+Dockerfile
+Makefile
+README.md
+test
+.env
+.env.docker
+.git
+.dockerignore
+docker-compose.yml
+eslint.config.js
