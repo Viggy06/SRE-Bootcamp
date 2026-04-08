@@ -1,7 +1,7 @@
 services:
   postgres_container:
     image: postgres:16-alpine
-    container_name: postgres-container
+#    container_name: postgres_container
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -28,7 +28,7 @@ services:
   migrate:
     build: .
     image: db_migrate:v1
-    container_name: db_migrate_container:v1
+    container_name: db_migrate_container_v1
     command: npm run migrate #CMD
     depends_on:
       postgres_container:

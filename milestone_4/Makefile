@@ -15,11 +15,11 @@ db-migrate:
 #Start App
 api-up:
         @echo "Starting DB..."
-        docker compose up -d postgres_container
+        docker compose up postgres_container
         @echo "Running Migrations..."
-        docker compose run --rm -d migrate
+        docker compose run --rm migrate
         @echo "Starting the api..."
-        docker compose up -d student_api
+        docker compose up student_api
 
         #clean up
         docker rmi db_migrate:v1
@@ -30,6 +30,10 @@ down:
 
 install:
         npm install
+
+# Run tests
+test:
+        npm test
 
 # Perform code linting
 lint:
