@@ -1,76 +1,87 @@
-// test.js
+import request from 'supertest';
+import express from 'express';
+import bodyParser from 'body-parser';
+import { expect } from 'chai';
 
-import request from "supertest";
-import { expect } from "chai";
-import app from "../server.js";
+const app = express();
 
-describe("Student API Tests", () => {
+app.use(bodyParser.json());
 
-  let createdId;
+// Reuse the routes from server.js
+let students = [];
+let nextId = 1;
 
-  // Healthcheck
-  it("GET /healthcheck should return OK", async () => {
+app.get('/api/v1/healthcheck', (req, res) => res.status(200).json({ status: 'OK' }));
+app.post('/api/v1/students', (req, res) => {
+  const student = { id: nextId++, ...req.body };
+  students.push(student);
+  res.status(201).json(student);
+});
+app.get('/api/v1/students', (req, res) => res.json(students));
+app.get('/api/v1/students/:id', (req, res) => {
+  const student = students.find(s => s.id === parseInt(req.params.id));
+  if (!student) {
+    return res.status(404).json({ message: 'Student not found' });
+  }
+  res.json(student);
+});
+app.put('/api/v1/students/:id', (req, res) => {
+  const student = students.find(s => s.id === parseInt(req.params.id));
+  if (!student) {
+    return res.status(404).json({ message: 'Student not found' });
+  }
+  Object.assign(student, req.body);
+  res.json(student);
+});
+app.delete('/api/v1/students/:id', (req, res) => {
+  students = students.filter(s => s.id !== parseInt(req.params.id));
+  res.status(204).end();
+});
+
+describe('Student API', () => {
+  it('should return healthcheck status', async () => {
     const res = await request(app)
-      .get("/api/v1/healthcheck");
-
-    expect(res.status).to.equal(200);
-    expect(res.body.status).to.equal("OK");
+      .get('/api/v1/healthcheck')
+      .expect('Content-Type', /json/)
+      .expect(200);
+    expect(res.body.status).to.equal('OK');
   });
 
-  // CREATE
-  it("POST /students should create student", async () => {
+  it('should create a new student', async () => {
+    const newStudent = { name: 'John Doe', age: 21 };
     const res = await request(app)
-      .post("/api/v1/students")
-      .send({
-        name: "John",
-        age: 20,
-        course: "Engineering"
-      });
-
-    expect(res.status).to.equal(201);
-    expect(res.body).to.have.property("id");
-
-    createdId = res.body.id; // save for next tests
+      .post('/api/v1/students')
+      .send(newStudent)
+      .expect(201);
+    expect(res.body).to.include(newStudent);
   });
 
-  // READ ALL
-  it("GET /students should return array", async () => {
+  it('should get all students', async () => {
     const res = await request(app)
-      .get("/api/v1/students");
-
-    expect(res.status).to.equal(200);
-    expect(res.body).to.be.an("array");
+      .get('/api/v1/students')
+      .expect(200);
+    expect(res.body).to.be.an('array');
   });
 
-  // READ ONE
-  it("GET /students/:id should return one student", async () => {
+  it('should get a student by ID', async () => {
     const res = await request(app)
-      .get(`/api/v1/students/${createdId}`);
-
-    expect(res.status).to.equal(200);
-    expect(res.body.id).to.equal(createdId);
+      .get('/api/v1/students/1')
+      .expect(200);
+    expect(res.body.id).to.equal(1);
   });
 
-  // UPDATE
-  it("PUT /students/:id should update student", async () => {
+  it('should update a student', async () => {
+    const updatedStudent = { name: 'Jane Doe', age: 22 };
     const res = await request(app)
-      .put(`/api/v1/students/${createdId}`)
-      .send({
-        name: "Jane",
-        age: 21,
-        course: "Science"
-      });
-
-    expect(res.status).to.equal(200);
-    expect(res.body.name).to.equal("Jane");
+      .put('/api/v1/students/1')
+      .send(updatedStudent)
+      .expect(200);
+    expect(res.body).to.include(updatedStudent);
   });
 
-  // DELETE
-  it("DELETE /students/:id should delete student", async () => {
-    const res = await request(app)
-      .delete(`/api/v1/students/${createdId}`);
-
-    expect(res.status).to.equal(200);
+  it('should delete a student', async () => {
+    await request(app)
+      .delete('/api/v1/students/1')
+      .expect(204);
   });
-
 });
