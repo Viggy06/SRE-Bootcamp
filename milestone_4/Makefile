@@ -10,20 +10,17 @@ db-up:
 
 # Run migrations (one-time job)
 db-migrate:
-        docker compose run --rm migrate
-        docker rmi db_migrate:v1
+	docker compose run --rm migrate
+	docker rmi db_migrate:v1
 
 # Start full app
 api-up:
 	@echo "Starting DB..."
 	docker compose up -d postgres_container
-
 	@echo "Running Migrations..."
 	docker compose run --rm migrate
-
 	@echo "Starting API..."
 	docker compose up -d student_api
-
 
 # Stop everything and delete volumes
 down:

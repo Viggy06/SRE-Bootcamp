@@ -32,7 +32,7 @@ services:
     image: db_migrate:v1
     container_name: db_migrate_container_v1
     env_file:
-      - .env
+      - .env.docker
     command: npm run migrate #CMD
     depends_on:
       postgres_container:
