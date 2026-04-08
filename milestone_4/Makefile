@@ -10,7 +10,8 @@ db-up:
 
 # Run migrations (one-time job)
 db-migrate:
-	docker compose run --rm migrate
+        docker compose run --rm migrate
+        docker rmi db_migrate:v1
 
 # Start full app
 api-up:
