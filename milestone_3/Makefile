@@ -10,7 +10,8 @@ db-up:
 
 #Migrate Database
 db-migrate:
-	docker compose run --rm -d migrate
+	docker compose run --rm migrate
+	docker rmi db_migrate:v1
 
 #Start App
 api-up:
