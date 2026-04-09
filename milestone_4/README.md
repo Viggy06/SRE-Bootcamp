@@ -1,35 +1,40 @@
-## Milestone:-  3 - Setup one-click local development setup
+## 🚀 Milestone 4: Setup CI Pipeline
 
-## Prerequisites
+### 📌 Description
 
-Make sure you have the following installed on your system:
+The CI pipeline runs the following steps:
 
-- [Docker](https://www.docker.com/products/docker-desktop)
-- [Make](https://www.gnu.org/software/make/#download)
+* Install dependencies
+* Run tests
+* Perform linting
+* Build image and push to docker repo
 
-### Follow these steps to set up the Student API:
+---
 
-###  Build the Docker Image
-```bash
-make docker-build
+## 🛠️ Makefile
+
+```makefile
+.PHONY: install lint test
+
+# Install dependencies
+install:
+	npm install
+
+# Run tests
+test:
+	npm test
+
+# Lint
+lint:
+	npm run lint
 ```
 
-###  Run the PostgreSQL Container
-```bash
-make db-up
-```
+---
 
-### Run the migration
-```bash
-make db-migrate
-```
+## ▶️ Usage
 
-###  Run the Application Container
 ```bash
-make api-up
-```
-
-### Turn down the applications
-```bash
-make down
+make install
+make test
+make lint
 ```
