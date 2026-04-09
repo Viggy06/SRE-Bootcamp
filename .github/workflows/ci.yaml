@@ -5,6 +5,7 @@ on:
     - milestone_4
   paths:
     - milestone_4/**
+    - .github/workflows/**
 
 permissions:
   contents: write
