@@ -48,7 +48,7 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v6
-        context: ${{ env.MILESTONE_4_DIR }}
         with:
           push: true
+          context: ${{ env.MILESTONE_4_DIR }}
           tags: captianvigg06/student-api-repo:${{ env.IMAGE_VERSION }}
