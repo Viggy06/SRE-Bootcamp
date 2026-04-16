@@ -21,19 +21,20 @@ vagrant ssh
 
 ### To Install Dependencies
 ```bash
-cd /milestone_5/
+cd milestone_5
+chmod +x package_setup
 ./package_setup
 ```
 
 ### Start the API Container
 ```bash
-cd /milestone_5/application
-make docker-compose-up-app
+cd milestone_5/application
+make up
 ```
 
 ### To stop the API Container
 ```bash
-make docker-compose-down-student-app
+make down
 ```
 
 ### To stop the Vagrant box
