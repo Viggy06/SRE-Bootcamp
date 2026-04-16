@@ -21,14 +21,13 @@ vagrant ssh
 
 ### To Install Dependencies
 ```bash
-cd milestone_5
 chmod +x package_setup
 ./package_setup
 ```
 
 ### Start the API Container
 ```bash
-cd milestone_5/application
+cd application
 make up
 ```
 
